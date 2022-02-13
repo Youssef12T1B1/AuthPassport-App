@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const bcrypt = require('bcryptjs');
+const passport = require('passport')
 
 
 module.exports.signup_post = (req,res)=>{
@@ -11,7 +12,7 @@ module.exports.signup_post = (req,res)=>{
          errors.push({msg:'Password do not match'})
      }
      if (password.length < 6){
-        errors.push({msg:'Passwords must be at least 6 characters long'})
+        errors.push({msg:'Password must be at least 6 characters long'})
     }
      if (errors.length>0){
          res.render('signup',{
@@ -54,10 +55,16 @@ module.exports.signup_post = (req,res)=>{
 
              }
          })
-        
-
-     }
-   
-    
-   
+        }
     }   
+
+    module.exports.login_post = (req,res, next)=>{
+        passport.authenticate('local', {
+            successRedirect: '/dashboard',
+            failureRedirect : '/login',
+            failureFlash : true
+        })(req, res, next)
+
+
+
+    }    

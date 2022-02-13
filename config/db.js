@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const URI = require('./keys').MONGO_URI
+const URI = require('./.env').MONGO_URI
 
 const connectDB = async ()=>{
     try {
