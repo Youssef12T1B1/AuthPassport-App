@@ -3,12 +3,13 @@
     <div class="col-md-6 m-auto">
         <div class="card card-body text-center">
             <h2> <i class="fas fa-user"></i> Sign In</h2>
+            <%- include ('./partials/messages') %>
 
 <form action="">
     <input type="text" name="email" id="email" placeholder="Email"> 
-    <div class="emailerror" style="margin-top: 5px; color: red; font-weight:bold"></div>
+    
      <input type="password" name="password" id="password" placeholder="Password"> 
-     <div class="passworderror" style="margin-top: 5px; color: red;font-weight:bold"></div>
+     
      <button class="btn brown darken-1" type="submit">Sign In</button>
       <div style="margin-top: 20px;"> <span>New to the App? </span><a href="/signup/">Sign Up</a></div>
 

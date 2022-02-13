@@ -46,6 +46,7 @@ module.exports.signup_post = (req,res)=>{
                     user.password = hash
                     user.save()
                     .then(user=>{
+                        req.flash('success_msg', 'You can Login Now')
                         res.redirect('/login')
                     })
                     .catch(err=>console.log(err))
