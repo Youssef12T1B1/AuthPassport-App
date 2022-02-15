@@ -18,13 +18,13 @@ require('./config/passport')(passport)
 app.use(ejslayouts)
 app.set('view engine', 'ejs')
 
-const PORT = require('./config/keys').PORT || 5000
+const PORT = require('./config/.env').PORT || 5000
 
 app.use(express.urlencoded({ extended: false}))
 
 //session
 app.use(session({
-    secret : require('./config/keys').SEC,
+    secret : require('./config/.env').SEC,
     resave: true,
     saveUninitialized: true,
 }))
